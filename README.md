@@ -15,8 +15,8 @@
 
   <li>Open another PowerShell terminal and navigate to the root folder of the Angular project.</li>
 
-  <li>Start the frontend on port 4000:</li>
-  <pre><code>ng serve --port 4000</code></pre>
+  <li>Start the frontend on port 4200:</li>
+  <pre><code>ng serve --port 4200</code></pre>
 </ol>
 
 <p>With these steps, you will have the backend API running on port 7138 and the frontend running on port 4000.</p>
