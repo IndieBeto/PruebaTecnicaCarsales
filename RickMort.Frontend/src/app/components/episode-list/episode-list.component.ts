@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EpisodeResult } from 'src/app/api/models/episode-result';
 import { Episode } from 'src/app/api/models/episode.model';
-import { EpisodeService } from 'src/app/api/services/episode.service';
+import { EpisodeStoreService } from 'src/app/store/episode-store.service';
 
 enum SortOrder {
   Ascending = 'ascending',
@@ -20,18 +20,22 @@ export class EpisodeListComponent implements OnInit {
   activeSortButton: string = '';
   sortOrders: Record<string, SortOrder> = {};
 
-  constructor(private episodeService: EpisodeService) { }
+  constructor(private episodeStore: EpisodeStoreService) { }
 
   ngOnInit(): void {
+    this.episodeStore.episodes$.subscribe((data: EpisodeResult | null) => {
+      if (data) {
+        this.episodes = data.results;
+        this.totalPages = data.info.pages;
+        console.log('Episodes:', data);
+      }
+    });
+
     this.loadEpisodes(this.currentPage);
   }
 
   loadEpisodes(page: number): void {
-    this.episodeService.getEpisodes(page).subscribe((data: EpisodeResult) => {
-      this.episodes = data.results;
-      this.totalPages = data.info.pages;
-      console.log('res', data);
-    });
+    this.episodeStore.getEpisodes(page);
   }
 
   nextPage(): void {
