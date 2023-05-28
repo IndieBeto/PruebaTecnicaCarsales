@@ -1,0 +1,19 @@
+# Visual Studio ASP.NET Core app
+.vs/
+
+# VS Code
+.vscode/
+
+# Node.js dependencies
+node_modules/
+
+# .NET build directories
+bin/
+obj/
+
+# .NET debug files
+*.pdb
+*.user
+*.suo
+*.cache
+*.dll.config

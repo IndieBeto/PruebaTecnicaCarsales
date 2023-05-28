@@ -1,0 +1,13 @@
+<div class="sorting-buttons">
+  <button class="sort-button" (click)="sortByName()">Sort by Name</button>
+  <button class="sort-button" (click)="sortByEpisodeId()">Sort by Episode ID</button>
+</div>
+
+<div class="episode-list">
+  <app-episode-card *ngFor="let episode of episodes" [episode]="episode"></app-episode-card>
+</div>
+
+<div class="pagination">
+  <button class="pagination-button" [disabled]="currentPage === 1" (click)="previousPage()" [ngClass]="{'disabled': currentPage === 1}">Previous</button>
+  <button class="pagination-button" [disabled]="currentPage === totalPages" (click)="nextPage()" [ngClass]="{'disabled': currentPage === totalPages}">Next</button>
+</div>

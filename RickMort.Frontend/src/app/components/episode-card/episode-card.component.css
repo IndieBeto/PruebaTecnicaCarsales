@@ -1,0 +1,26 @@
+.content-card {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 16px;
+  display: flex; /* Added */
+  flex-direction: column; /* Added */
+}
+
+.episode-card-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.episode-card-details {
+  color: #888;
+}
+
+.episode-card-image {
+  flex-grow: 1; /* Added */
+  background-size: cover; /* Added */
+  background-position: center; /* Added */
+  background-repeat: no-repeat; /* Added */
+  margin-bottom: 16px; /* Added */
+}
